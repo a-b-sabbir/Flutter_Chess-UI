@@ -32,20 +32,22 @@ class MyHomePage extends StatelessWidget {
       body: ListView.builder(
         itemCount: 8,
         itemBuilder: (BuildContext context, int parentIndex) {
-          return SizedBox(
-            height: 40,
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: 8,
-              itemBuilder: (BuildContext context, int index) {
-                int change = parentIndex.isEven ? 1 : 0;
-                return (index + change).isEven
-                    ? UnconstrainedBox(child: chessBox(white: true))
-                    : UnconstrainedBox(
-                        child: chessBox(white: false),
-                      );
-              },
+          return Center(
+            child: SizedBox(
+              height: 40,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: 8,
+                itemBuilder: (BuildContext context, int index) {
+                  int change = parentIndex.isEven ? 1 : 0;
+                  return (index + change).isEven
+                      ? UnconstrainedBox(child: chessBox(white: true))
+                      : UnconstrainedBox(
+                          child: chessBox(white: false),
+                        );
+                },
+              ),
             ),
           );
         },
@@ -58,6 +60,6 @@ Widget chessBox({bool white = false}) {
   return Container(
     height: 40,
     width: 40,
-    color: white ? Colors.white : Colors.black,
+    color: white ? Colors.yellow : Colors.black,
   );
 }
